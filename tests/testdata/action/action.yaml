@@ -1,0 +1,49 @@
+---
+name: Action
+documentation: Command line specified possible actions.
+namespaces:
+  - runprofile
+default: UNKNOWN
+data_type: int
+options:
+  inline: false
+  test_driver: true
+items:
+  - name: VERSION
+    documentation: Show version
+    display: "Version"
+    value: 77
+    id: 1
+  - name: BENCHMARK
+    documentation: Run benchmarks
+    display: "Benchmark"
+    value: 88
+    id: 2
+  - name: MACHINE_INFO
+    documentation: Produce machine information
+    display: "Machine Info"
+    value: 99
+    id: 3
+  - name: INTERPOLATE
+    documentation: Run interpolation
+    display: "Interpolate"
+    value: 100
+    id: 4
+    value: 15
+  - name: HELP
+    documentation: Show help
+    display: "Help"
+    value: 700
+    id: 5
+  - name: UNKNOWN
+    documentation: Default non-selection option
+    display: "Unknown"
+    value: 1000
+    id: 6
+  - name: NA
+    documentation: Non applicable option
+    display: "Not Applicable"
+    id: 7
+    value: 900
+...
+
