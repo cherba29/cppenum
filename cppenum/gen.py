@@ -194,7 +194,7 @@ def render(buf, render_data, template_filename):
 
 def main(argv=None):
   if argv is None:
-    argv = sys.argv
+    argv = sys.argv[1:]
   parser = argparse.ArgumentParser(description='C++ enum generator.')
   parser.add_argument('--config', required=True,
                       help='YAML format config for enumeration.')
