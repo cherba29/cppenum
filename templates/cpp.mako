@@ -19,7 +19,7 @@
  */
 
 // DO NOT EDIT CHANGES WILL OVERWITEN WHEN REGENERATED
-// Generated from template "${self.filename}".
+// Generated from config "${config_file_path}".
 
 #include "${name}.h"
 

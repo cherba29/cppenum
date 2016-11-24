@@ -3,7 +3,7 @@
 #define INCLUDED_${'_'.join(namespaces).upper()}${'_' if namespaces else ''}${name.upper()}
 
 // DO NOT EDIT CHANGES WILL OVERWITEN WHEN REGENERATED
-// Generated from template "${self.filename}".
+// Generated from config "${config_file_path}".
 
 /**
  * @file ${name}.h

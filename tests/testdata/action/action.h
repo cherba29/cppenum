@@ -2,7 +2,7 @@
 #define INCLUDED_RUNPROFILE_ACTION
 
 // DO NOT EDIT CHANGES WILL OVERWITEN WHEN REGENERATED
-// Generated from template "C:\Users\cherba\github\cpp-enum\templates/h.mako".
+// Generated from config "tests/testdata/action/action.yaml".
 
 /**
  * @file Action.h

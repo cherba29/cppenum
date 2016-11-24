@@ -1,5 +1,5 @@
 // DO NOT EDIT CHANGES WILL OVERWITEN WHEN REGENERATED
-// Generated from template "C:\Users\cherba\github\cpp-enum\templates/t.cpp.mako".
+// Generated from config "tests/testdata/action/action.yaml".
 
 /**
  * @file Action.t.cpp

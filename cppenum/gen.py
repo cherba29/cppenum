@@ -12,56 +12,56 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import sys
-
-from collections import Counter
-from collections import namedtuple
-# from mako import exceptions
-from mako.exceptions import RichTraceback
-from mako.runtime import Context
-# from mako.template import Template
-from mako.lookup import TemplateLookup
 import argparse
 import logging
 import os
+import sys
 import yaml
 
 try:
-  from yaml import CLoader as Loader  # , CDumper as Dumper
+  from yaml import CLoader as Loader
 except ImportError:
-  from yaml import Loader  # , Dumper
-import sys
+  from yaml import Loader
+
+
+import collections
+from mako import exceptions
+from mako import lookup
+from mako import runtime
+
 
 # Rendering data collected for each enumeration.
-Item = namedtuple('Item', [
-  'name',  # Enum name.
-  'idName',  # Normalized enum name, ussually upper case.
-  'valName',  # Identifier for underlying enum value.
-  'open_ifdef',  # None or ifdef label if it should precede this item.
-  'close_ifdef',  # None or ifdef label if it should close this item.
-  'id',  # Enum id.
-  'documentation',  # Comment describing this enum.
-  'value',  # Enum underlying value, see data_type in config.
-  'display',
+Item = collections.namedtuple('Item', [
+    'name',  # Enum name.
+    'idName',  # Normalized enum name, ussually upper case.
+    'valName',  # Identifier for underlying enum value.
+    'open_ifdef',  # None or ifdef label if it should precede this item.
+    'close_ifdef',  # None or ifdef label if it should close this item.
+    'id',  # Enum id.
+    'documentation',  # Comment describing this enum.
+    'value',  # Enum underlying value, see data_type in config.
+    'display',
 ])
 
 # Tuple of data sent to mako for rendering.
-RenderData = namedtuple('RenderData', [
-  'name',  # Enumeration class name.
-  'data_type',
-  # Abstract data type for this enum, eg. string, double, int, etc.
-  'value_type',
-  # Actual type used for values, for example 'const char*' for string data type.
-  'ifdefs',  # Number of items in each ifdef.
-  'items',  # List of enum items.
-  'default',  # Reference to default enum item.
-  'invalid',  # Reference to invalid enum item.
-  'author',
-  'year',
-  'maxIdSize',  # Max length of any enum name.
-  'maxValIdSize',  # Max length of any enum id name.
-  'maxValSize',  # Max length of any enum value.
-  'namespaces',  # List of nested namespaces for this enum class.
+RenderData = collections.namedtuple('RenderData', [
+    'config_file_path',  # Path to configuration filename
+    'name',  # Enumeration class name.
+    # Abstract data type for this enum, eg. string, double, int, etc.
+    'data_type',
+    # Actual type used for values,
+    # for example 'const char*' for string data type.
+    'value_type',
+    'ifdefs',  # Number of items in each ifdef.
+    'items',  # List of enum items.
+    'default',  # Reference to default enum item.
+    'invalid',  # Reference to invalid enum item.
+    'author',
+    'year',
+    'maxIdSize',  # Max length of any enum name.
+    'maxValIdSize',  # Max length of any enum id name.
+    'maxValSize',  # Max length of any enum value.
+    'namespaces',  # List of nested namespaces for this enum class.
 ])
 
 
@@ -71,21 +71,22 @@ def load_enum_config(filename):
     try:
       return yaml.load(stream, Loader=Loader)
     except ValueError as e:
-      raise Exception("Failed to parse %s, %s" % (filename, e))
+      raise Exception('Failed to parse {0}, {1}'.format(filename, e))
 
 
 def process_items(data_items, data_type):
   """Helper function to build enum item data for rendering."""
   items = []
   # Counts number of items for in each ifdef.
-  ifdefs = Counter()
+  ifdefs = collections.Counter()
 
   input_items = [{
-    'name': 'INVALID',
-    'id': -1,
-    'value': '*INVALID*' if data_type == 'string' else -1,
-    'display': 'Invalid',
-    'documentation': 'Additional value, set to when object cannot be initialized',
+      'name': 'INVALID',
+      'id': -1,
+      'value': '*INVALID*' if data_type == 'string' else -1,
+      'display': 'Invalid',
+      'documentation':
+          'Additional value, set to when object cannot be initialized',
   }] + data_items
 
   def ifdef_change(item1, item2):
@@ -115,29 +116,25 @@ def process_items(data_items, data_type):
     logging.info('%s', curr_item['name'])
     try:
       item = Item(
-        name=curr_item['name'],
-        idName=curr_item['name'].upper(),
-        valName='VAL_OF_' + curr_item['name'].upper(),
-        id=curr_item['id'],
-        open_ifdef=ifdef_change(prev_item, curr_item),
-        close_ifdef=ifdef_change(next_item, curr_item),
-        documentation=curr_item[
-          'documentation'] if 'documentation' in curr_item else '',
-        value=get_normalized_value(curr_item, data_type),
-        display=curr_item['display'])
+          name=curr_item['name'],
+          idName=curr_item['name'].upper(),
+          valName='VAL_OF_' + curr_item['name'].upper(),
+          id=curr_item['id'],
+          open_ifdef=ifdef_change(prev_item, curr_item),
+          close_ifdef=ifdef_change(next_item, curr_item),
+          documentation=curr_item.get('documentation', ''),
+          value=get_normalized_value(curr_item, data_type),
+          display=curr_item['display'])
     except KeyError as e:
       raise Exception("Could not get %s in %s" % (e, curr_item))
-    if 'ifdef' in curr_item and curr_item['ifdef']:
-      ifdef = curr_item['ifdef']
-      ifdefs[ifdef] += 1
-    else:
-      ifdefs[''] += 1
+    ifdef = curr_item.get('ifdef', None)
+    ifdefs[''] += 1
     items.append(item)
   return items, ifdefs
 
 
-def build_rendering_data(data):
-  """Given yaml data constructs dictionary of data with precomputed values for easy rendering."""
+def build_rendering_data(config_filename, data):
+  """Given yaml data constructs dictionary for easy rendering."""
   items, ifdefs = process_items(data['items'], data['data_type'])
 
   invalid_item = [item for item in items if item.name == 'INVALID'][0]
@@ -145,8 +142,8 @@ def build_rendering_data(data):
     default_item = [item for item in items if item.name == data['default']]
     if not default_item:
       raise Exception(
-        'default item %s is specified but not found in the list' % (
-        data['default'],))
+          'default item {0} is specified but not found in the list'
+          .format(data['default']))
     default_item = default_item[0]
   else:
     default_item = invalid_item
@@ -158,34 +155,38 @@ def build_rendering_data(data):
     elif type(data['namespaces']) == list:
       namespaces = data['namespaces']
   logging.info('namespaces %s', namespaces)
+  common_prefix = os.path.commonprefix([__file__, config_filename])
+  config_file_path = os.path.relpath(
+      config_filename, common_prefix).replace('\\', '/')
   return RenderData(
-    data_type=data['data_type'],
-    name=data['name'],
-    ifdefs=sorted(ifdefs.most_common(), key=lambda pair: pair[0]),
-    # sort by ifdef name.
-    items=items,
-    default=default_item,
-    invalid=invalid_item,
-    author='Arthur D. Cherba',
-    year=2014,
-    maxIdSize=max([len(item.idName) for item in items]),
-    maxValIdSize=len('VAL_OF_') + max([len(item.name) for item in items]),
-    maxValSize=max([len(str(item.value)) for item in items]),
-    namespaces=namespaces,
-    value_type=data['data_type'] if data[
-                                      'data_type'] != 'string' else 'const char*')
+      config_file_path=config_file_path,
+      data_type=data['data_type'],
+      name=data['name'],
+      ifdefs=sorted(ifdefs.most_common(), key=lambda pair: pair[0]),
+      # sort by ifdef name.
+      items=items,
+      default=default_item,
+      invalid=invalid_item,
+      author='Arthur D. Cherba',
+      year=2014,
+      maxIdSize=max([len(item.idName) for item in items]),
+      maxValIdSize=len('VAL_OF_') + max([len(item.name) for item in items]),
+      maxValSize=max([len(str(item.value)) for item in items]),
+      namespaces=namespaces,
+      value_type=data['data_type'] if data[
+        'data_type'] != 'string' else 'const char*')
 
 
 def render(buf, render_data, template_filename):
   """Using given template renders data into given buffer."""
   root_dir = os.path.dirname(os.path.dirname(__file__))
   lookup_dirs = [os.path.join(root_dir, 'templates')]
-  lookup = TemplateLookup(directories=lookup_dirs)
+  template_lookup = lookup.TemplateLookup(directories=lookup_dirs)
   try:
-    template = lookup.get_template(template_filename)
-    template.render_context(Context(buf, **render_data._asdict()))
+    template = template_lookup.get_template(template_filename)
+    template.render_context(runtime.Context(buf, **render_data._asdict()))
   except:
-    traceback = RichTraceback()
+    traceback = exceptions.RichTraceback()
     for (filename, lineno, function, line) in traceback.traceback:
       print("File %s, line %s, in %s" % (filename, lineno, function))
       print(line, '\n')
@@ -215,7 +216,7 @@ def main(argv=None):
   data = load_enum_config(args.config)
   logging.info(data)
 
-  render_data = build_rendering_data(data)
+  render_data = build_rendering_data(args.config, data)
 
   base_filename = os.path.basename(args.config)
   base_filename, _ = os.path.splitext(base_filename)
