@@ -22,6 +22,7 @@
 
 #include "Action.h"
 
+#define BOOST_TEST_ALTERNATIVE_INIT_API
 #include <boost/test/unit_test.hpp>
 
 using namespace ::runprofile;
@@ -95,7 +96,8 @@ BOOST_AUTO_TEST_CASE(test_action_default_reset) {
   }
   BOOST_CHECK_EQUAL(nDedault,1);
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_default_reset)
+
 
 BOOST_AUTO_TEST_CASE(test_action_invalid) {
   Action enumVal(-1); // Guaranteed to set enum to invalid
@@ -113,7 +115,8 @@ BOOST_AUTO_TEST_CASE(test_action_invalid) {
     if (Action(i) == Action::INVALID) ++nInvalid;
   }
   BOOST_CHECK_EQUAL(nInvalid,1);
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_invalid)
+
 
 BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   Action enum_0(Action::INVALID);
@@ -212,7 +215,8 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_constructor_idx)
+
 
 BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   Action t_0("INVALID");
@@ -287,7 +291,8 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_constructor_name)
+
 
 BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   Action t_0("INVALID", 7);
@@ -362,7 +367,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_constructor_name_len)
 
 
 BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
@@ -438,7 +443,8 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_constructor_enum)
+
 
 BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   Action t_0;
@@ -521,7 +527,8 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE( test_action_from_value )
+
 
 BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   Action t_0;
@@ -604,7 +611,8 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE( test_action_from_set_id )
+
 
 BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   Action t_0;
@@ -695,7 +703,8 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_action_from_set_index)
+
 
 BOOST_AUTO_TEST_CASE(test_action_stream) {
   Action t_0;
@@ -866,4 +875,9 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
     BOOST_CHECK_EQUAL(enumFromStream, Action::NA);
   }
 
+}  // BOOST_AUTO_TEST_CASE(test_action_stream)
+
+
+bool init_unit_test() {
+  return true;
 }

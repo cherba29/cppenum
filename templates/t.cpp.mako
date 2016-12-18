@@ -23,6 +23,7 @@
 
 #include "${name}.h"
 
+#define BOOST_TEST_ALTERNATIVE_INIT_API
 #include <boost/test/unit_test.hpp>
 
 % if namespaces:
@@ -78,7 +79,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_default_reset) {
   }
   BOOST_CHECK_EQUAL(nDedault,1);
 
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_default_reset)
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_invalid) {
   ${name} enumVal(-1); // Guaranteed to set enum to invalid
@@ -96,7 +98,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_invalid) {
     if (${name}(i) == ${name}::${invalid.idName}) ++nInvalid;
   }
   BOOST_CHECK_EQUAL(nInvalid,1);
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_invalid)
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_idx) {
 % for i, item in enumerate(items):
@@ -115,7 +118,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_idx) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_idx)
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name) {
 % for i, item in enumerate(items):
@@ -131,7 +135,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name)
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name_len) {
 % for i, item in enumerate(items):
@@ -147,7 +152,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name_len) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name_len)
 
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_enum) {
@@ -164,7 +169,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_enum) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_enum)
+
 
 BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_value ) {
 % for i, item in enumerate(items):
@@ -181,7 +187,8 @@ BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_value ) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_value )
+
 
 BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_set_id ) {
 % for i, item in enumerate(items):
@@ -198,7 +205,8 @@ BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_set_id ) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_set_id )
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_from_set_index) {
 % for i, item in enumerate(items):
@@ -216,7 +224,8 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_from_set_index) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
-}
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_from_set_index)
+
 
 BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream) {
 % for i, item in enumerate(items):
@@ -244,4 +253,9 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream) {
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
 % endfor
+}  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream)
+
+
+bool init_unit_test() {
+  return true;
 }
