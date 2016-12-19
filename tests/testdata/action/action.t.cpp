@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), idx0);
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action enum_1(Action::VERSION);
@@ -140,7 +140,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), idx1);
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action enum_2(Action::BENCHMARK);
@@ -152,7 +152,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), idx2);
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action enum_3(Action::MACHINE_INFO);
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), idx3);
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action enum_4(Action::INTERPOLATE);
@@ -176,7 +176,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), idx4);
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action enum_5(Action::HELP);
@@ -188,7 +188,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), idx5);
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action enum_6(Action::UNKNOWN);
@@ -200,7 +200,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), idx6);
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action enum_7(Action::NA);
@@ -212,7 +212,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), idx7);
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE(test_action_constructor_idx)
@@ -225,7 +225,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), getEnumOrigIndex(Action::INVALID));
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1("VERSION");
@@ -234,7 +234,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), getEnumOrigIndex(Action::VERSION));
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2("BENCHMARK");
@@ -243,7 +243,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), getEnumOrigIndex(Action::BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3("MACHINE_INFO");
@@ -252,7 +252,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), getEnumOrigIndex(Action::MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4("INTERPOLATE");
@@ -261,7 +261,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), getEnumOrigIndex(Action::INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5("HELP");
@@ -270,7 +270,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), getEnumOrigIndex(Action::HELP));
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6("UNKNOWN");
@@ -279,7 +279,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), getEnumOrigIndex(Action::UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7("NA");
@@ -288,7 +288,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), getEnumOrigIndex(Action::NA));
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE(test_action_constructor_name)
@@ -301,7 +301,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), getEnumOrigIndex(Action::INVALID));
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1("VERSION", 7);
@@ -310,7 +310,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), getEnumOrigIndex(Action::VERSION));
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2("BENCHMARK", 9);
@@ -319,7 +319,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), getEnumOrigIndex(Action::BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3("MACHINE_INFO", 12);
@@ -328,7 +328,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), getEnumOrigIndex(Action::MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4("INTERPOLATE", 11);
@@ -337,7 +337,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), getEnumOrigIndex(Action::INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5("HELP", 4);
@@ -346,7 +346,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), getEnumOrigIndex(Action::HELP));
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6("UNKNOWN", 7);
@@ -355,7 +355,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), getEnumOrigIndex(Action::UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7("NA", 2);
@@ -364,7 +364,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), getEnumOrigIndex(Action::NA));
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE(test_action_constructor_name_len)
@@ -377,7 +377,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), getEnumOrigIndex(Action::INVALID));
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1(Action::VERSION);
@@ -386,7 +386,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), getEnumOrigIndex(Action::VERSION));
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2(Action::BENCHMARK);
@@ -395,7 +395,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), getEnumOrigIndex(Action::BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3(Action::MACHINE_INFO);
@@ -404,7 +404,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), getEnumOrigIndex(Action::MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4(Action::INTERPOLATE);
@@ -413,7 +413,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), getEnumOrigIndex(Action::INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5(Action::HELP);
@@ -422,7 +422,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), getEnumOrigIndex(Action::HELP));
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6(Action::UNKNOWN);
@@ -431,7 +431,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), getEnumOrigIndex(Action::UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7(Action::NA);
@@ -440,7 +440,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), getEnumOrigIndex(Action::NA));
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE(test_action_constructor_enum)
@@ -454,7 +454,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), getEnumOrigIndex(Action::INVALID));
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1;
@@ -464,7 +464,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), getEnumOrigIndex(Action::VERSION));
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2;
@@ -474,7 +474,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), getEnumOrigIndex(Action::BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3;
@@ -484,7 +484,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), getEnumOrigIndex(Action::MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4;
@@ -494,7 +494,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), getEnumOrigIndex(Action::INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5;
@@ -504,7 +504,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), getEnumOrigIndex(Action::HELP));
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6;
@@ -514,7 +514,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), getEnumOrigIndex(Action::UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7;
@@ -524,7 +524,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), getEnumOrigIndex(Action::NA));
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE( test_action_from_value )
@@ -538,7 +538,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), getEnumOrigIndex(Action::INVALID));
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1;
@@ -548,7 +548,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), getEnumOrigIndex(Action::VERSION));
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2;
@@ -558,7 +558,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), getEnumOrigIndex(Action::BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3;
@@ -568,7 +568,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), getEnumOrigIndex(Action::MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4;
@@ -578,7 +578,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), getEnumOrigIndex(Action::INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5;
@@ -588,7 +588,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), getEnumOrigIndex(Action::HELP));
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6;
@@ -598,7 +598,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), getEnumOrigIndex(Action::UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7;
@@ -608,7 +608,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), getEnumOrigIndex(Action::NA));
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE( test_action_from_set_id )
@@ -623,7 +623,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), idx0);
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
 
   Action t_1;
@@ -634,7 +634,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), idx1);
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
 
   Action t_2;
@@ -645,7 +645,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), idx2);
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
   Action t_3;
@@ -656,7 +656,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), idx3);
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
 
   Action t_4;
@@ -667,7 +667,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), idx4);
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
 
   Action t_5;
@@ -678,7 +678,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), idx5);
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
 
   Action t_6;
@@ -689,7 +689,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), idx6);
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
 
   Action t_7;
@@ -700,7 +700,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), idx7);
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
 
 }  // BOOST_AUTO_TEST_CASE(test_action_from_set_index)
@@ -715,7 +715,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_0.getIndex(), idx0);
   BOOST_CHECK_EQUAL(t_0.getName(), "INVALID");
   BOOST_CHECK_EQUAL(t_0.getValue(), -1);
-  BOOST_CHECK_EQUAL(t_0.getValue(), Action::VAL_OF_INVALID);
+  BOOST_CHECK_EQUAL(t_0.getValue(), (int)(Action::VAL_OF_INVALID));
   BOOST_CHECK_EQUAL(t_0.toString(), "Invalid");
   {
     std::ostringstream oss;
@@ -736,7 +736,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_1.getIndex(), idx1);
   BOOST_CHECK_EQUAL(t_1.getName(), "VERSION");
   BOOST_CHECK_EQUAL(t_1.getValue(), 77);
-  BOOST_CHECK_EQUAL(t_1.getValue(), Action::VAL_OF_VERSION);
+  BOOST_CHECK_EQUAL(t_1.getValue(), (int)(Action::VAL_OF_VERSION));
   BOOST_CHECK_EQUAL(t_1.toString(), "Version");
   {
     std::ostringstream oss;
@@ -757,7 +757,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_2.getIndex(), idx2);
   BOOST_CHECK_EQUAL(t_2.getName(), "BENCHMARK");
   BOOST_CHECK_EQUAL(t_2.getValue(), 88);
-  BOOST_CHECK_EQUAL(t_2.getValue(), Action::VAL_OF_BENCHMARK);
+  BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
   {
     std::ostringstream oss;
@@ -778,7 +778,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_3.getIndex(), idx3);
   BOOST_CHECK_EQUAL(t_3.getName(), "MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
-  BOOST_CHECK_EQUAL(t_3.getValue(), Action::VAL_OF_MACHINE_INFO);
+  BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
   {
     std::ostringstream oss;
@@ -799,7 +799,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_4.getIndex(), idx4);
   BOOST_CHECK_EQUAL(t_4.getName(), "INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getValue(), 15);
-  BOOST_CHECK_EQUAL(t_4.getValue(), Action::VAL_OF_INTERPOLATE);
+  BOOST_CHECK_EQUAL(t_4.getValue(), (int)(Action::VAL_OF_INTERPOLATE));
   BOOST_CHECK_EQUAL(t_4.toString(), "Interpolate");
   {
     std::ostringstream oss;
@@ -820,7 +820,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_5.getIndex(), idx5);
   BOOST_CHECK_EQUAL(t_5.getName(), "HELP");
   BOOST_CHECK_EQUAL(t_5.getValue(), 700);
-  BOOST_CHECK_EQUAL(t_5.getValue(), Action::VAL_OF_HELP);
+  BOOST_CHECK_EQUAL(t_5.getValue(), (int)(Action::VAL_OF_HELP));
   BOOST_CHECK_EQUAL(t_5.toString(), "Help");
   {
     std::ostringstream oss;
@@ -841,7 +841,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_6.getIndex(), idx6);
   BOOST_CHECK_EQUAL(t_6.getName(), "UNKNOWN");
   BOOST_CHECK_EQUAL(t_6.getValue(), 1000);
-  BOOST_CHECK_EQUAL(t_6.getValue(), Action::VAL_OF_UNKNOWN);
+  BOOST_CHECK_EQUAL(t_6.getValue(), (int)(Action::VAL_OF_UNKNOWN));
   BOOST_CHECK_EQUAL(t_6.toString(), "Unknown");
   {
     std::ostringstream oss;
@@ -862,7 +862,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   BOOST_CHECK_EQUAL(t_7.getIndex(), idx7);
   BOOST_CHECK_EQUAL(t_7.getName(), "NA");
   BOOST_CHECK_EQUAL(t_7.getValue(), 900);
-  BOOST_CHECK_EQUAL(t_7.getValue(), Action::VAL_OF_NA);
+  BOOST_CHECK_EQUAL(t_7.getValue(), (int)(Action::VAL_OF_NA));
   BOOST_CHECK_EQUAL(t_7.toString(), "Not Applicable");
   {
     std::ostringstream oss;

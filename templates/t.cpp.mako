@@ -113,7 +113,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_idx) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), idx${i});
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -130,7 +130,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), getEnumOrigIndex(${name}::${item.idName}));
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -147,7 +147,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), getEnumOrigIndex(${name}::${item.idName}));
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -164,7 +164,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_constructor_enum) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), getEnumOrigIndex(${name}::${item.idName}));
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -182,7 +182,7 @@ BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_value ) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), getEnumOrigIndex(${name}::${item.idName}));
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -200,7 +200,7 @@ BOOST_AUTO_TEST_CASE( test_${name.lower()}_from_set_id ) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), getEnumOrigIndex(${name}::${item.idName}));
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -219,7 +219,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_from_set_index) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), idx${i});
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
 <%shared:close_ifdef name="${item.close_ifdef}"/>\
 
@@ -238,7 +238,7 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream) {
   BOOST_CHECK_EQUAL(t_${i}.getIndex(), idx${i});
   BOOST_CHECK_EQUAL(t_${i}.getName(), "${item.name}");
   BOOST_CHECK_EQUAL(t_${i}.getValue(), ${item.value});
-  BOOST_CHECK_EQUAL(t_${i}.getValue(), ${name}::${item.valName});
+  BOOST_CHECK_EQUAL(t_${i}.getValue(), (${value_type})(${name}::${item.valName}));
   BOOST_CHECK_EQUAL(t_${i}.toString(), "${item.display}");
   {
     std::ostringstream oss;
