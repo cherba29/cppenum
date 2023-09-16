@@ -78,3 +78,6 @@ class RegressionTests(unittest.TestCase):
 
 _MakeTestsFrom(
     os.path.join(os.path.dirname(__file__), 'testdata') ,RegressionTests)
+
+if __name__ == '__main__':
+   unittest.main()

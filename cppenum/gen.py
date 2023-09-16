@@ -67,7 +67,7 @@ RenderData = collections.namedtuple('RenderData', [
 
 def load_enum_config(filename):
   """Loads yaml file data into dictionary."""
-  with file(filename, 'r') as stream:
+  with open(filename, 'r') as stream:
     try:
       return yaml.load(stream, Loader=Loader)
     except ValueError as e:
@@ -225,7 +225,7 @@ def main(argv=None):
   for template in ['h', 'cpp', 't.cpp']:
     filename = os.path.join(args.output_dir, base_filename + '.' + template)
     logging.info("Rendering %s", filename)
-    with open(filename, 'wb') as buf:
+    with open(filename, 'w') as buf:
       render(buf, render_data, template + '.mako')
 
   return 0

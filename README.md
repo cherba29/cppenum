@@ -6,3 +6,8 @@ C++ enumarations are somewhat basic. Often enum values need to be
 printed or enterred by the user. This class allows mapping of enum
 values to strings.
 
+
+## Test
+```
+ python -m tests.sample_regression_test
+```
