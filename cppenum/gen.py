@@ -127,8 +127,8 @@ def process_items(data_items, data_type):
           display=curr_item['display'])
     except KeyError as e:
       raise Exception("Could not get %s in %s" % (e, curr_item))
-    ifdef = curr_item.get('ifdef', None)
-    ifdefs[''] += 1
+    ifdef = curr_item.get('ifdef', '')
+    ifdefs[ifdef] += 1
     items.append(item)
   return items, ifdefs
 

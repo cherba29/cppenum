@@ -46,10 +46,12 @@ namespace runprofile {
  *     std::cout << "Got Id: " << enm.getId() << " display: " << enm.toString()
  *               << " value: " << enm.toValue() << std::endl;
  *     break;
+#ifdef MACHINE
  *   case Action::MACHINE_INFO:
  *     std::cout << "Got Id: " << enm.getId() << " display: " << enm.toString()
  *               << " value: " << enm.toValue() << std::endl;
  *     break;
+#endif // MACHINE
  *   case Action::INTERPOLATE:
  *     std::cout << "Got Id: " << enm.getId() << " display: " << enm.toString()
  *               << " value: " << enm.toValue() << std::endl;
@@ -79,19 +81,26 @@ public:
      INVALID      = -1 /**< Additional value, set to when object cannot be initialized */
    , VERSION      = 1 /**< Show version */
    , BENCHMARK    = 2 /**< Run benchmarks */
+#ifdef MACHINE
    , MACHINE_INFO = 3 /**< Produce machine information */
+#endif // MACHINE
    , INTERPOLATE  = 4 /**< Run interpolation */
    , HELP         = 5 /**< Show help */
    , UNKNOWN      = 6 /**< Default non-selection option */
    , NA           = 7 /**< Non applicable option */
   };
   static const int NUM_ENUMS =
-      8
+      7
+#ifdef MACHINE
+    + 1
+#endif // MACHINE
   ;
   static const int VAL_OF_INVALID      = -1; /**< Additional value, set to when object cannot be initialized, value -1 */
   static const int VAL_OF_VERSION      = 77; /**< Show version, value 77 */
   static const int VAL_OF_BENCHMARK    = 88; /**< Run benchmarks, value 88 */
+#ifdef MACHINE
   static const int VAL_OF_MACHINE_INFO = 99; /**< Produce machine information, value 99 */
+#endif // MACHINE
   static const int VAL_OF_INTERPOLATE  = 15; /**< Run interpolation, value 15 */
   static const int VAL_OF_HELP         = 700; /**< Show help, value 700 */
   static const int VAL_OF_UNKNOWN      = 1000; /**< Default non-selection option, value 1000 */
@@ -100,7 +109,9 @@ public:
   static const char* NAME_OF_INVALID;      /**< value INVALID */
   static const char* NAME_OF_VERSION;      /**< value VERSION */
   static const char* NAME_OF_BENCHMARK;    /**< value BENCHMARK */
+#ifdef MACHINE
   static const char* NAME_OF_MACHINE_INFO; /**< value MACHINE_INFO */
+#endif // MACHINE
   static const char* NAME_OF_INTERPOLATE;  /**< value INTERPOLATE */
   static const char* NAME_OF_HELP;         /**< value HELP */
   static const char* NAME_OF_UNKNOWN;      /**< value UNKNOWN */

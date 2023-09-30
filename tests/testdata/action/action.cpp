@@ -45,7 +45,9 @@ entry const entries[Action::NUM_ENUMS] = {
   { "HELP",         sizeof("HELP")-1,         Action::HELP         },
   { "INTERPOLATE",  sizeof("INTERPOLATE")-1,  Action::INTERPOLATE  },
   { "INVALID",      sizeof("INVALID")-1,      Action::INVALID      },
+#ifdef MACHINE
   { "MACHINE_INFO", sizeof("MACHINE_INFO")-1, Action::MACHINE_INFO },
+#endif // MACHINE
   { "NA",           sizeof("NA")-1,           Action::NA           },
   { "UNKNOWN",      sizeof("UNKNOWN")-1,      Action::UNKNOWN      },
   { "VERSION",      sizeof("VERSION")-1,      Action::VERSION      },
@@ -56,7 +58,9 @@ Action::Choice const idByOrigOrder[Action::NUM_ENUMS] = {
   Action::INVALID,
   Action::VERSION,
   Action::BENCHMARK,
+#ifdef MACHINE
   Action::MACHINE_INFO,
+#endif // MACHINE
   Action::INTERPOLATE,
   Action::HELP,
   Action::UNKNOWN,
@@ -79,7 +83,9 @@ Val2Id const values[Action::NUM_ENUMS] = {
   { 15,   Action::INTERPOLATE  },
   { 77,   Action::VERSION      },
   { 88,   Action::BENCHMARK    },
+#ifdef MACHINE
   { 99,   Action::MACHINE_INFO },
+#endif // MACHINE
   { 700,  Action::HELP         },
   { 900,  Action::NA           },
   { 1000, Action::UNKNOWN      },
@@ -97,7 +103,9 @@ inline int compare(T a, T b) { if (a<b) return -1; else return (a==b)?0:1; }
 const char* Action::NAME_OF_INVALID      = "INVALID";
 const char* Action::NAME_OF_VERSION      = "VERSION";
 const char* Action::NAME_OF_BENCHMARK    = "BENCHMARK";
+#ifdef MACHINE
 const char* Action::NAME_OF_MACHINE_INFO = "MACHINE_INFO";
+#endif // MACHINE
 const char* Action::NAME_OF_INTERPOLATE  = "INTERPOLATE";
 const char* Action::NAME_OF_HELP         = "HELP";
 const char* Action::NAME_OF_UNKNOWN      = "UNKNOWN";
@@ -110,7 +118,9 @@ char const* Action::getName() const {
     case INVALID:      return "INVALID";
     case VERSION:      return "VERSION";
     case BENCHMARK:    return "BENCHMARK";
+#ifdef MACHINE
     case MACHINE_INFO: return "MACHINE_INFO";
+#endif // MACHINE
     case INTERPOLATE:  return "INTERPOLATE";
     case HELP:         return "HELP";
     case UNKNOWN:      return "UNKNOWN";
@@ -125,7 +135,9 @@ char const* Action::toString() const {
     case INVALID:      return "Invalid";
     case VERSION:      return "Version";
     case BENCHMARK:    return "Benchmark";
+#ifdef MACHINE
     case MACHINE_INFO: return "Machine Info";
+#endif // MACHINE
     case INTERPOLATE:  return "Interpolate";
     case HELP:         return "Help";
     case UNKNOWN:      return "Unknown";
@@ -140,7 +152,9 @@ int Action::getValue() const {
     case INVALID:      return -1;
     case VERSION:      return 77;
     case BENCHMARK:    return 88;
+#ifdef MACHINE
     case MACHINE_INFO: return 99;
+#endif // MACHINE
     case INTERPOLATE:  return 15;
     case HELP:         return 700;
     case UNKNOWN:      return 1000;
@@ -155,7 +169,9 @@ Action& Action::setToValue(int val) {
     case -1:   val_ = INVALID;      return *this;
     case 77:   val_ = VERSION;      return *this;
     case 88:   val_ = BENCHMARK;    return *this;
+#ifdef MACHINE
     case 99:   val_ = MACHINE_INFO; return *this;
+#endif // MACHINE
     case 15:   val_ = INTERPOLATE;  return *this;
     case 700:  val_ = HELP;         return *this;
     case 1000: val_ = UNKNOWN;      return *this;
@@ -228,29 +244,37 @@ int Action::getIndex() const {
         + 1
         + 1
 ;
+#ifdef MACHINE
     case MACHINE_INFO: return 0
         + 1
         + 1
         + 1
 ;
+#endif // MACHINE
     case INTERPOLATE:  return 0
         + 1
         + 1
         + 1
+#ifdef MACHINE
         + 1
+#endif // MACHINE
 ;
     case HELP:         return 0
         + 1
         + 1
         + 1
+#ifdef MACHINE
         + 1
+#endif // MACHINE
         + 1
 ;
     case UNKNOWN:      return 0
         + 1
         + 1
         + 1
+#ifdef MACHINE
         + 1
+#endif // MACHINE
         + 1
         + 1
 ;
@@ -258,7 +282,9 @@ int Action::getIndex() const {
         + 1
         + 1
         + 1
+#ifdef MACHINE
         + 1
+#endif // MACHINE
         + 1
         + 1
         + 1

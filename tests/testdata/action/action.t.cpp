@@ -33,7 +33,9 @@ Action::Choice const idByOrigOrder[Action::NUM_ENUMS] = {
   Action::INVALID,
   Action::VERSION,
   Action::BENCHMARK,
+#ifdef MACHINE
   Action::MACHINE_INFO,
+#endif // MACHINE
   Action::INTERPOLATE,
   Action::HELP,
   Action::UNKNOWN,
@@ -75,8 +77,10 @@ BOOST_AUTO_TEST_CASE(test_action_default_reset) {
   Action t_2(2);
   BOOST_CHECK_EQUAL(t_2.reset(), Action::UNKNOWN);
 
+#ifdef MACHINE
   Action t_3(3);
   BOOST_CHECK_EQUAL(t_3.reset(), Action::UNKNOWN);
+#endif // MACHINE
 
   Action t_4(4);
   BOOST_CHECK_EQUAL(t_4.reset(), Action::UNKNOWN);
@@ -155,6 +159,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action enum_3(Action::MACHINE_INFO);
   int idx3 = enum_3.getIndex();
   BOOST_CHECK_EQUAL(idx3, getEnumOrigIndex(Action::MACHINE_INFO));
@@ -166,6 +171,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_idx) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action enum_4(Action::INTERPOLATE);
   int idx4 = enum_4.getIndex();
@@ -246,6 +252,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3("MACHINE_INFO");
   BOOST_CHECK_EQUAL(t_3.getId(), Action::MACHINE_INFO);
   BOOST_CHECK_EQUAL(t_3, Action::MACHINE_INFO);
@@ -254,6 +261,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4("INTERPOLATE");
   BOOST_CHECK_EQUAL(t_4.getId(), Action::INTERPOLATE);
@@ -322,6 +330,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3("MACHINE_INFO", 12);
   BOOST_CHECK_EQUAL(t_3.getId(), Action::MACHINE_INFO);
   BOOST_CHECK_EQUAL(t_3, Action::MACHINE_INFO);
@@ -330,6 +339,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_name_len) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4("INTERPOLATE", 11);
   BOOST_CHECK_EQUAL(t_4.getId(), Action::INTERPOLATE);
@@ -398,6 +408,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3(Action::MACHINE_INFO);
   BOOST_CHECK_EQUAL(t_3.getId(), Action::MACHINE_INFO);
   BOOST_CHECK_EQUAL(t_3, Action::MACHINE_INFO);
@@ -406,6 +417,7 @@ BOOST_AUTO_TEST_CASE(test_action_constructor_enum) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4(Action::INTERPOLATE);
   BOOST_CHECK_EQUAL(t_4.getId(), Action::INTERPOLATE);
@@ -477,6 +489,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3;
   t_3.setToValue(99);
   BOOST_CHECK_EQUAL(t_3.getId(), Action::MACHINE_INFO);
@@ -486,6 +499,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_value ) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4;
   t_4.setToValue(15);
@@ -561,6 +575,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3;
   t_3.setId(Action::MACHINE_INFO);
   BOOST_CHECK_EQUAL(t_3.getId(), Action::MACHINE_INFO);
@@ -570,6 +585,7 @@ BOOST_AUTO_TEST_CASE( test_action_from_set_id ) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4;
   t_4.setId(Action::INTERPOLATE);
@@ -648,6 +664,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_2.getValue(), (int)(Action::VAL_OF_BENCHMARK));
   BOOST_CHECK_EQUAL(t_2.toString(), "Benchmark");
 
+#ifdef MACHINE
   Action t_3;
   int idx3 = getEnumOrigIndex(Action::MACHINE_INFO);
   t_3.setToIndex(idx3);
@@ -658,6 +675,7 @@ BOOST_AUTO_TEST_CASE(test_action_from_set_index) {
   BOOST_CHECK_EQUAL(t_3.getValue(), 99);
   BOOST_CHECK_EQUAL(t_3.getValue(), (int)(Action::VAL_OF_MACHINE_INFO));
   BOOST_CHECK_EQUAL(t_3.toString(), "Machine Info");
+#endif // MACHINE
 
   Action t_4;
   int idx4 = getEnumOrigIndex(Action::INTERPOLATE);
@@ -770,6 +788,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
     BOOST_CHECK_EQUAL(enumFromStream, Action::BENCHMARK);
   }
 
+#ifdef MACHINE
   Action t_3;
   int idx3 = getEnumOrigIndex(Action::MACHINE_INFO);
   t_3.setToIndex(idx3);
@@ -790,6 +809,7 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
     iss >> enumFromStream;
     BOOST_CHECK_EQUAL(enumFromStream, Action::MACHINE_INFO);
   }
+#endif // MACHINE
 
   Action t_4;
   int idx4 = getEnumOrigIndex(Action::INTERPOLATE);

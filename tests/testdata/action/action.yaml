@@ -20,6 +20,7 @@ items:
     value: 88
     id: 2
   - name: MACHINE_INFO
+    ifdef: MACHINE
     documentation: Produce machine information
     display: "Machine Info"
     value: 99
