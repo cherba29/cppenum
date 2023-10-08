@@ -22,7 +22,6 @@
 
 #include "Action.h"
 
-#define BOOST_TEST_ALTERNATIVE_INIT_API
 #include <boost/test/unit_test.hpp>
 
 using namespace ::runprofile;
@@ -896,8 +895,3 @@ BOOST_AUTO_TEST_CASE(test_action_stream) {
   }
 
 }  // BOOST_AUTO_TEST_CASE(test_action_stream)
-
-
-bool init_unit_test() {
-  return true;
-}

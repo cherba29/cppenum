@@ -53,7 +53,7 @@ def _MakeTest(testdata_dir, sample):
            '--log_level', 'DEBUG'])
       self.assertFalse(status)
       actual_files = set(os.listdir(tmp_dir_path))
-      self.assertEquals(expected_files, actual_files)
+      self.assertEqual(expected_files, actual_files)
       for file_name in sorted(expected_files):
         AssertDiffEqual(
             GetFileContents(os.path.join(sample_dir, file_name)),

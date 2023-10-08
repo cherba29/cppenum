@@ -23,7 +23,6 @@
 
 #include "${name}.h"
 
-#define BOOST_TEST_ALTERNATIVE_INIT_API
 #include <boost/test/unit_test.hpp>
 
 % if namespaces:
@@ -254,8 +253,3 @@ BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream) {
 
 % endfor
 }  // BOOST_AUTO_TEST_CASE(test_${name.lower()}_stream)
-
-
-bool init_unit_test() {
-  return true;
-}
