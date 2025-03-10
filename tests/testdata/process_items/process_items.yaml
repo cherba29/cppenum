@@ -1,0 +1,83 @@
+name: process_items_test
+data_type: int
+items:
+  - name: ITEM_1
+    id: 1
+    value: 1
+    display: Item 1
+  - name: ITEM_2
+    id: 2
+    value: 2
+    display: Item 2
+  - name: ITEM_3
+    id: 3
+    value: 3
+    display: Item 3
+  - name: ITEM_4
+    id: 4
+    value: 4
+    display: Item 4
+  - name: ITEM_5
+    id: 5
+    value: 5
+    display: Item 5
+  - name: ITEM_6
+    id: 6
+    value: 6
+    display: Item 6
+  - name: ITEM_7
+    id: 7
+    value: 7
+    display: Item 7
+  - name: ITEM_8
+    id: 8
+    value: 8
+    display: Item 8
+  - name: ITEM_9
+    id: 9
+    value: 9
+    display: Item 9
+  - name: ITEM_10
+    id: 10
+    value: 10
+    display: Item 10
+  - name: ITEM_11
+    id: 11
+    value: 11
+    display: Item 11
+  - name: ITEM_12
+    id: 12
+    value: 12
+    display: Item 12
+  - name: ITEM_13
+    id: 13
+    value: 13
+    display: Item 13
+  - name: ITEM_14
+    id: 14
+    value: 14
+    display: Item 14
+  - name: ITEM_15
+    id: 15
+    value: 15
+    display: Item 15
+  - name: ITEM_16
+    id: 16
+    value: 16
+    display: Item 16
+  - name: ITEM_17
+    id: 17
+    value: 17
+    display: Item 17
+  - name: ITEM_18
+    id: 18
+    value: 18
+    display: Item 18
+  - name: ITEM_19
+    id: 19
+    value: 19
+    display: Item 19
+  - name: ITEM_20
+    id: 20
+    value: 20
+    display: Item 20
